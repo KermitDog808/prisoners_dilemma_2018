@@ -16,6 +16,7 @@ def move(my_history, their_history, my_score, their_score):
     x = 6
     y = 0
     z = 0
+    v = 1
     '''Make my move based on the history with this player.
     
     history: a string with one letter (c or b) per round that has been played with this opponent.
@@ -25,73 +26,79 @@ def move(my_history, their_history, my_score, their_score):
     
     Returns 'c' or 'b' for collude or betray.
     '''
-    if len(my_history) < 51:
-        if len(my_history)==4: # It's the first round; collude.
+    if v == 0:
+        if their_history == 'b'
             return 'b'
-        elif len(my_history) < 10:
+        else:
             return 'c'
-        elif their_history[5] == 'b':
-            if their_history[their_history < 10 and not 5] == "c":
-                if len(my_history) == 49:
-                    return 'b'
-                else: return 'c'
-                
-            elif their_history[their_history < 6] == "c" and their_history[5 < their_history and their_history <11] == "b":
-                return "b"
-            
-            else:
-                for l in str("Bigg"):
-                    if their_history[x] == "b":
-                        y += 1
-                        x += 1
-                    else:
-                        z += 0
-                    x = 6
-                if y < 3:
+    else:
+        if len(my_history) < 51:
+            if len(my_history)==4: # It's the first round; collude.
+                return 'b'
+            elif len(my_history) < 10:
+                return 'c'
+            elif their_history[5] == 'b':
+                if their_history[their_history < 10 and not 5] == "c":
                     if len(my_history) == 49:
-                        return "b"
-                    else:
-                        return "c"
-                else:
+                        return 'b'
+                    else: return 'c'
+
+                elif their_history[their_history < 6] == "c" and their_history[5 < their_history and their_history <11] == "b":
                     return "b"
+
+                else:
+                    for l in str("Bigg"):
+                        if their_history[x] == "b":
+                            y += 1
+                            x += 1
+                        else:
+                            z += 0
+                        x = 6
+                    if y < 3:
+                        if len(my_history) == 49:
+                            return "b"
+                        else:
+                            return "c"
+                    else:
+                        return "b"
+            else:
+                return "c"
+
+        elif len(my_history) < 301:
+            if len(my_history)==54: # It's the first round; collude.
+                return 'b'
+            elif len(my_history) < 60:
+                return 'c'
+            elif their_history[55] == 'b':
+                if their_history[their_history < 60 and not 55] == "c":
+                    if len(my_history) == 99:
+                        return 'b'
+                    else: return 'c'
+
+                elif their_history[51 < their_history and their_history <56] == "c" and their_history[55 < their_history and their_history <61] == "b":
+                    return "b"
+
+                else:
+                    for l in str("Bigg"):
+                        if their_history[x] == "b":
+                            y += 1
+                            x += 1
+                        else:
+                            z += 0
+                        x = 6
+                    if y < 3:
+                        if len(my_history) == 99:
+                            return "b"
+                        else:
+                            return "c"
+                    else:
+                        return "b"
         else:
             return "c"
-    
-    elif len(my_history) < 301:
-        if len(my_history)==54: # It's the first round; collude.
-            return 'b'
-        elif len(my_history) < 60:
+        if len(my_history) == 99 and their_history[98] == 'c':
             return 'c'
-        elif their_history[55] == 'b':
-            if their_history[their_history < 60 and not 55] == "c":
-                if len(my_history) == 99:
-                    return 'b'
-                else: return 'c'
-                
-            elif their_history[51 < their_history and their_history <56] == "c" and their_history[55 < their_history and their_history <61] == "b":
-                return "b"
-            
-            else:
-                for l in str("Bigg"):
-                    if their_history[x] == "b":
-                        y += 1
-                        x += 1
-                    else:
-                        z += 0
-                    x = 6
-                if y < 3:
-                    if len(my_history) == 99:
-                        return "b"
-                    else:
-                        return "c"
-                else:
-                    return "b"
-    else:
-        return "c"
-    if len(my_history) == 99 and their_history[98] == 'c':
-        return 'c'
-    else:
-        return 'b'
+        else:
+            return 'b'
 #up bois
     
 def test_move(my_history, their_history, my_score, their_score, result):
